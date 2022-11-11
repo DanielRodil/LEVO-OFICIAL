@@ -1,0 +1,34 @@
+<main>
+    <div class="container mt-auto">
+
+        <br>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <h2>{{ vehiculo.matricula.toUpperCase() }} &nbsp; {{ vehiculo.marca.toUpperCase() }} &nbsp; {{ vehiculo.modelo.toUpperCase() }}</h2>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-primary btn-md" (click)="consultar()">
+                    Consultar
+                </button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-warning btn-md" (click)="editar()">
+                    Editar
+                </button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-danger btn-md" (click)="eliminar()">
+                    Eliminar
+                </button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-success btn-md" [routerLink]="['mantenimientoForm', vehiculo.id]">
+                    Nuevo mantenimiento
+                </button>
+            </div>
+        </div>
+
+        <app-avisokm [avisokm]="avisokm"></app-avisokm>
+
+        <!-- {{ avisokm | json }} -->
+
+    </div>
+</main>

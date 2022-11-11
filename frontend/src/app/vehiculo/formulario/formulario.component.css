@@ -1,0 +1,19 @@
+.mat-form-field {
+  margin-top: 34px;
+}
+
+p {
+  color:#f8fafa;
+}
+
+span {
+  color:#004d40;
+}
+
+p.fs-x {
+  margin-top: .5rem;
+  color: #fafbfb;
+  font-size:xx-large;
+  justify-content: center;
+  align-items: center;
+}

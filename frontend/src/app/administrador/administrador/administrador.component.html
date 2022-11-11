@@ -1,0 +1,53 @@
+<div class="row" id="lineaInferior">
+  <p></p>
+</div>
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="vehiculo/formulario">Alta Vehículo</a>
+  </li>
+
+</ul>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 login-form-1">
+    <div>
+      <input type="text" class="form-control" id="matricula"
+        placeholder="Introduzca la matrícula del vehículo que desea consultar" [(ngModel)]="matricula" required>
+    </div>
+    <br>
+    <button type="button" class="btn btn-success btn-md" (click)="vehiculoBuscado(matricula)">
+      Buscar
+    </button>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div *ngFor="let vehiculo of vehiculos">
+  <app-busqueda-item [vehiculo]="vehiculo" (vehiculoConsultar)="onVehiculoConsultar($event)"
+    (vehiculoEliminar)="onVehiculoEliminar($event)" (vehiculoEditar)="onVehiculoEditar($event)">
+  </app-busqueda-item>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
