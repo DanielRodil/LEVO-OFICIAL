@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { environment } from "src/environments/environment";
 import { DatosTecnicosInteres } from "../../models/datos-tecnicos-interes";
 import { Mantenimiento } from "../../models/mantenimiento";
@@ -18,6 +19,8 @@ export class MantenimientoFormComponent implements OnInit {
 
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}vehiculos`;
+
+  volver= faArrowLeft;
 
   mantenimiento: Mantenimiento = new MantenimientoImpl();
   vehiculo!: Vehiculo;

@@ -191,4 +191,18 @@ export class VehiculoEditarComponent implements OnInit {
   }
 
   volver= faArrowLeft;
+  
+  rol:any=sessionStorage.getItem('ROLE');
+  
+goBack(){
+  console.log(this.rol);
+  if(this.rol=='ADMIN'){
+    this.router.navigate(['/administrador']);
+  }
+  if(this.rol=='USER'){
+    this.router.navigate(['/usuario']);
+  }
+}
+
+ 
 }

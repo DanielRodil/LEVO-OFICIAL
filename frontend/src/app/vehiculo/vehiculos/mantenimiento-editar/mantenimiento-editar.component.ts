@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment.prod';
 import { DatosTecnicosInteres } from '../../models/datos-tecnicos-interes';
 import { Mantenimiento } from '../../models/mantenimiento';
@@ -23,10 +24,15 @@ export class MantenimientoEditarComponent implements OnInit {
   datosTecnicosInteres!: DatosTecnicosInteres;
   mantenimientoPreventivo!: MantenimientoPreventivo;
 
+  private host=environment.host
+
+  volver= faArrowLeft;
+
   constructor(
     private vehiculoService: VehiculoService,
     private mantenimientoService: MantenimientoService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,5 +64,14 @@ export class MantenimientoEditarComponent implements OnInit {
       .updateMantenimmiento(this.mantenimiento)
       .subscribe();
   }
+
+  goBack(){
+    let url = `administrador`;
+    console.log(url);
+    this.router.navigate([url]);
+  }
+
+  
+
 
 }

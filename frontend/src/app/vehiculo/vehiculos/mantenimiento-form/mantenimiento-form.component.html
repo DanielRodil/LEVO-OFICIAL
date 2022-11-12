@@ -1,8 +1,13 @@
 <div class="row" id="lineaInferior">
-  <p></p>
-  <p class="fs-2">Nuevo Mantenimiento {{ vehiculo.matricula | uppercase }}</p>
+  <div class=" col-2"></div>
+  <div class=" col-8">
+  <p class="fs-x">Nuevo Mantenimiento / {{vehiculo.matricula|uppercase}}</p>
+  </div>
+<div class=" col-2">
+  <p id="volver"><fa-icon [icon]="volver" (click)="goBack()"></fa-icon>
+  Volver</p>
 </div>
-
+</div>
 <div class="container mt-auto">
 
   <form #mantenimientoForm="ngForm" class="was-validated">
