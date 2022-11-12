@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
     this.mostrarIconos();
   }
 
-  logout(){ console.log(this.user);
+  logout(){
     this.authService.logout();
   }
 

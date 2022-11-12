@@ -3,25 +3,27 @@
 	<div class="container-fluid">
 
 		<div class="row">
-			<div class="col-xl-2"></div>
+			<div class="col-xl-2">
+				<img id="logoGCleft" src="\assets\imagenes\emblemagcnuevo.png">
+			</div>
 
 			<div class="col-xl-8" id="columnaLogo">
-				<img id="logoGCleft" src="\assets\imagenes\emblemagcnuevo.png">
+				<!-- <img id="logoGCleft" src="\assets\imagenes\emblemagcnuevo.png">
 				&nbsp;
 				&nbsp;
 				&nbsp;
-				&nbsp;
+				&nbsp; -->
 				<img id="levo" src="\assets\imagenes\levo.png" routerLink="/">
+				<!-- &nbsp;
 				&nbsp;
 				&nbsp;
 				&nbsp;
-				&nbsp;
-				<img id="logoGCright" src="\assets\imagenes\emblemagcnuevo.png">
+				<img id="logoGCright" src="\assets\imagenes\emblemagcnuevo.png"> -->
 			</div>
-			<div class="col-xl-2" *ngIf="verUsuario">
-				<fa-icon [icon]="usuario"></fa-icon><p>{{user}}&nbsp;&nbsp;&nbsp;{{rol|lowercase}}</p>
-				<fa-icon [icon]="salir" (click)="logout()"></fa-icon>
-				<p>Cerrar Sesión</p>
+			<div class="col-xl-2" *ngIf="verUsuario" id="identificacion">
+				<div class="row"><p><fa-icon [icon]="usuario"></fa-icon>&nbsp;&nbsp;&nbsp;{{user}}&nbsp;&nbsp;&nbsp;({{rol|lowercase}})</p></div>
+				<div class="row"><p><fa-icon [icon]="salir" (click)="logout()"></fa-icon>
+				Cerrar Sesión</p></div>
 			</div>
 
 		</div>

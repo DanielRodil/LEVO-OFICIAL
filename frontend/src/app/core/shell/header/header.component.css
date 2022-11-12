@@ -6,19 +6,16 @@ header {
 }
 
 #columnaLogo {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 #logoGCleft {
+  margin-top: 1rem;
+  margin-right: 10rem;
   height: 75px;
   width: 50px;
 }
 
-#logoGCright {
-  height: 75px;
-  width: 50px;
-}
-
-#levo {
-  margin-top: 0, 5rem;
+#identificacion{
+  margin-top: 1.5rem;
 }
