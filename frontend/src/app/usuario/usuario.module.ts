@@ -7,12 +7,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BusquedaItemUsuarioComponent } from './busqueda-item-usuario/busqueda-item-usuario.component';
 import { VehiculoModule } from '../vehiculo/vehiculo.module';
 import { FormsModule } from '@angular/forms';
+import { AvisokmusuarioComponent } from './avisokmusuario/avisokmusuario.component';
 
 
 @NgModule({
   declarations: [
     UsuarioComponent,
-    BusquedaItemUsuarioComponent
+    BusquedaItemUsuarioComponent,
+    AvisokmusuarioComponent
   ],
   imports: [
     CommonModule,
