@@ -1,7 +1,7 @@
 <div class="row" id="lineaInferior">
   <div class=" col-2"></div>
   <div class=" col-8">
-  <p  class="fs-x">Editar -- {{vehiculo.matricula|uppercase}}</p>
+  <p  class="fs-x">{{vehiculo.matricula|uppercase}}/Editar</p>
   </div>
   <div class=" col-2" >
     <p id="volver"><fa-icon [icon]="volver" (click)="goBack()"></fa-icon>
@@ -24,7 +24,7 @@
           <mat-form-field class="fs-5" appearance="outline">
             <mat-label>Matrícula</mat-label>
             <input type="text" matInput placeholder="PGC0000A" formControlName="matricula"
-              [(ngModel)]="vehiculo.matricula" maxlength="8" minlength="8" required />
+              [(ngModel)]="vehiculo.matricula" maxlength="8" minlength="8" readonly />
           </mat-form-field>
         </div>
 
@@ -120,7 +120,7 @@
           <mat-form-field class="fs-6" appearance="outline">
             <mat-label>Nº Bastidor</mat-label>
             <input type="text" matInput placeholder="vdbnkplpkffej32442" formControlName="bastidor"
-              [(ngModel)]="datosTecnicosInteres.bastidor" required />
+              [(ngModel)]="datosTecnicosInteres.bastidor" readonly/>
           </mat-form-field>
         </div>
 
@@ -592,7 +592,7 @@
     <div>
       <button class="btn btn-warning btn-md" mat-button matStepperPrevious>Atrás</button>
       &nbsp;&nbsp;&nbsp;
-      <a routerLink="/vehiculos" (click)="onEditarVehiculo()"><button class="btn btn-primary btn-md" mat-button>Guardar</button></a>
+      <button class="btn btn-primary btn-md" mat-button data-bs-toggle="modal" data-bs-target="#EditarVehiculo">Guardar</button>
     </div>
 
     <br>
@@ -600,3 +600,24 @@
   </mat-step>
 
 </mat-stepper>
+
+<!--Modal Editar Vehiculo-->
+
+<!--Modal Alta Vehiculo-->
+
+<div class="modal fade" id="EditarVehiculo" tabindex="-1" aria-labelledby="EditarVehiculo" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="EditarVehiculo">Editar Vehiculo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Los datos del vehiculo {{vehiculo.matricula}} han sido modificados
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onEditarVehiculo()" routerLink="/administrador">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

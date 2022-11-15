@@ -63,6 +63,7 @@ export class MantenimientoEditarComponent implements OnInit {
     this.mantenimientoService
       .updateMantenimmiento(this.mantenimiento)
       .subscribe();
+      this.router.navigate([`administrador/editar/${this.vehiculo.id}`]);
   }
 
   goBack(){

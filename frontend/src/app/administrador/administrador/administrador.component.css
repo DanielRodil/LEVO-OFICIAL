@@ -54,21 +54,35 @@
 
 li.nav-item{
   margin-left: 1rem;
-  height: 3rem;
   background-color: #004d40;
-  font-weight: bold;
   font-size: 16px;
-  border-top-color: #fdd835;
-  border-style: solid;
-  border-left-color: #fdd835;
-  border-right-color: #fdd835;
 
 }
 
 a{
+  color:#fbfbf9;
+  
+}
+
+a:hover{
   color:#fdd835;
+
 }
 
 ul.nav{
   margin-left: -20px;
+}
+
+#tituloLogin{
+  margin-left: 17rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bolder;
+  color:#004d00;
+  font-size: x-large;
+}
+
+.input-matricula{
+  width: 50%;
+  margin-left: 12rem;
 }

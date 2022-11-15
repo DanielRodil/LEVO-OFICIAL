@@ -1,7 +1,7 @@
 <div class="row" id="lineaInferior">
   <div class=" col-2"></div>
   <div class=" col-8">
-  <p class="fs-x">Nuevo Mantenimiento / {{vehiculo.matricula|uppercase}}</p>
+  <p class="fs-x">{{vehiculo.matricula|uppercase}}/Nuevo Mantenimiento</p>
   </div>
 <div class=" col-2">
   <p id="volver"><fa-icon [icon]="volver" (click)="goBack()"></fa-icon>
@@ -224,8 +224,8 @@
     <br><br><br>
 
     <div>
-      <button class="btn btn-success" type="submit" (click)="onAddMantenimiento()"
-        [disabled]="!mantenimientoForm.form.valid">Aceptar</button>
+      <button class="btn btn-success" type="submit"
+        [disabled]="!mantenimientoForm.form.valid" data-bs-toggle="modal" data-bs-target="#NuevoMantenimiento">Aceptar</button>
       &nbsp;&nbsp;&nbsp;
       <button class="btn btn-danger" name="cancelarMantenimiento" (click)="goBack()">Cancelar</button>
     </div>
@@ -235,3 +235,22 @@
   </form>
 
   <br><br>
+
+  <!--Modal Nuevo Mantenimiento-->
+
+  <div class="modal fade" id="NuevoMantenimiento" tabindex="-1" aria-labelledby="NuevoMantenimiento" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="NuevoMantenimiento">Nuevo MAntenimiento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Se ha anotado un nuevo mantenimiento al vehiculo {{vehiculo.matricula}}
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onAddMantenimiento()" >Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>

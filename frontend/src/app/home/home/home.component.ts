@@ -1,3 +1,4 @@
+import { DeclareVarStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth-service.service';
@@ -13,6 +14,9 @@ export class HomeComponent implements OnInit {
 
  
   usuario: Usuario = new UsuarioImpl();
+  usuarioIncorrecto="";
+
+  
 
   constructor(private authService: AuthService, private router:Router) {
     this.show = false;
@@ -22,7 +26,12 @@ export class HomeComponent implements OnInit {
   }
 
   login(){
-    this.authService.login(this.usuario.usuario, this.usuario.contrasena).subscribe(response=>{
+   
+    if(this.usuario.usuario==null||this.usuario.contrasena==null){
+       this.usuarioIncorrecto="Debe introducir el usuario y contraseña para acceder al sistema";
+            
+      }else{
+       this.authService.login(this.usuario.usuario, this.usuario.contrasena).subscribe(response=>{
       if(response.role==='ADMIN'){
         let url = `administrador`;
     this.router.navigate([url]);
@@ -32,6 +41,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate([url]);
       }
     });
+    }   
   }
 
   show: boolean;

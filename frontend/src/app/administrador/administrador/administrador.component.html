@@ -1,12 +1,21 @@
 <div class="row" id="lineaInferior">
-  <p></p>
-</div>
-<ul class="nav">
-  <li class="nav-item">
+  <ul class="nav">
+    <li class="nav-item">
     <a class="nav-link" routerLink="vehiculo/formulario">Alta Vehículo</a>
-  </li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Búsqueda por Unidad</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Destacamentos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Facturación</a>
+    </li>
+  </ul>
 
-</ul>
+</div>
+
 
 <br>
 <br>
@@ -16,9 +25,11 @@
 
 <div class="row justify-content-center">
   <div class="col-md-6 login-form-1">
+    <div class="row" id="tituloLogin">BUSCAR MATRICULA</div>
+    
     <div>
-      <input type="text" class="form-control" id="matricula"
-        placeholder="Introduzca la matrícula del vehículo que desea consultar" [(ngModel)]="matricula" required>
+      <input type="text" class="form-control input-matricula" id="matricula"
+        placeholder="p.e., PGC0000A" [(ngModel)]="matricula" required>
     </div>
     <br>
     <button type="button" class="btn btn-success btn-md" (click)="vehiculoBuscado(matricula)">

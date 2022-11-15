@@ -1,7 +1,7 @@
 <div class="row" id="lineaInferior">
   <div class=" col-2"></div>
   <div class=" col-8">
-  <p class="fs-x">Editar Mantenimiento/{{ mantenimiento.fechaMantenimiento }}/{{vehiculo.matricula|uppercase}}</p>
+  <p class="fs-x">{{vehiculo.matricula|uppercase}}/Editar Mantenimiento/{{ mantenimiento.fechaMantenimiento }}</p>
   </div>
   <!-- <p></p>
   <p class="fs-2"></p> -->
@@ -228,10 +228,10 @@
     <br><br><br>
 
     <div>
-      <button class="btn btn-success" type="submit" (click)="onMantenimientoEditar()"
+      <button class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#EditarMantenimiento"
         [disabled]="!mantenimientoForm.form.valid">Aceptar</button>
       &nbsp;&nbsp;&nbsp;
-      <button class="btn btn-danger" name="cancelarMantenimiento" routerLink="/">Cancelar</button>
+      <button class="btn btn-danger" name="cancelarMantenimiento" routerLink="/administrador">Cancelar</button>
     </div>
 
     <br>
@@ -239,3 +239,25 @@
   </form>
 
   <br><br>
+
+  <!--Modal Editar Mantenimiento-->
+
+  <div class="modal fade" id="EditarMantenimiento" tabindex="-1" aria-labelledby="EditarMantenimiento" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="EditarMantenimiento">Editar Mantenimiento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Se ha modificado el mantenimiento  de fecha {{mantenimiento.fechaMantenimiento}} del vehiculo {{vehiculo.matricula}}
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary"data-bs-dismiss="modal" (click)="onMantenimientoEditar()" routerLink="/administrador">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

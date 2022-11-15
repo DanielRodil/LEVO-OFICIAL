@@ -2,8 +2,8 @@
   margin-top: 34px;
 }
 
-p {
-  color:#f8fafa;
+p.fs-6 {
+  color:#0c0c0c;
 }
 
 span {
@@ -19,4 +19,8 @@ p.fs-x {
 }
 #volver{
   margin-top: .8rem;
+}
+
+#formulario ::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
 }

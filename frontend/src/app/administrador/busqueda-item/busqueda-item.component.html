@@ -16,7 +16,7 @@
                     Editar
                 </button>
                 &nbsp; &nbsp; &nbsp; &nbsp;
-                <button type="button" class="btn btn-danger btn-md" (click)="eliminar()">
+                <button type="button" class="btn btn-danger btn-md" data-bs-toggle="modal" data-bs-target="#EliminarVehiculo" >
                     Eliminar
                 </button>
                 &nbsp; &nbsp; &nbsp; &nbsp;
@@ -32,3 +32,20 @@
 
     </div>
 </main>
+<!--Modal eliminar vehiculo-->
+<div class="modal fade" id="EliminarVehiculo" tabindex="-1" aria-labelledby="EliminarVehiculo" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="EliminarVehiculo">Eliminar Vehiculo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          El vehiculo {{vehiculo.matricula}} ha sido eliminado
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminar()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -52,6 +52,7 @@ export class MantenimientoFormComponent implements OnInit {
     this.mantenimientoService
       .crearMantenimiento(this.mantenimiento)
       .subscribe();
+      this.router.navigate([`administrador/consultar/${this.vehiculo.id}`]);
   }
 
   goBack(){

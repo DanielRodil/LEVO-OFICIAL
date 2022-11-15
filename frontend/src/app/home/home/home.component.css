@@ -49,3 +49,20 @@ input {
   padding: 7px;
 }
 
+.campo{
+  margin-top: .5rem;
+}
+
+.checkbox{
+  margin-top: 1.2rem;
+  margin-left: -26rem;
+}
+
+span{
+  margin-left:-23rem;
+}
+#usuarioIncorrecto{
+  color:red;
+  margin-top: 2rem;
+  margin-left:12rem;
+}

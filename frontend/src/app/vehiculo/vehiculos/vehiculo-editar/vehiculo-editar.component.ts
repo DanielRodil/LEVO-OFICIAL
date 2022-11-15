@@ -164,7 +164,7 @@ export class VehiculoEditarComponent implements OnInit {
       .updateAvisokm(this.avisokm, this.mantenimientoPreventivo, this.vehiculo.kilometrosActuales)
       .subscribe();
 
-    this.router.navigate(['administrador']);
+    this.router.navigate([`administrador/consultar/${this.vehiculo.id}`]);
   }
 
   verDatosVehiculo(vehiculo: Vehiculo): void {
