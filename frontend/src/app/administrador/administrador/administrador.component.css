@@ -74,7 +74,7 @@ ul.nav{
 }
 
 #tituloLogin{
-  margin-left: 17rem;
+  margin-left: 15rem;
   margin-bottom: 2rem;
   text-align: center;
   font-weight: bolder;
@@ -85,4 +85,12 @@ ul.nav{
 .input-matricula{
   width: 50%;
   margin-left: 12rem;
+}
+
+.dropdown-item{
+  color:black;
+}
+
+:hover.dropdown-item{
+  color:#004d00;
 }

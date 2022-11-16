@@ -33,7 +33,7 @@ export class FormularioComponent implements OnInit {
   tipoVehiculo;
 
   firstFormGroup = this._formBuilder.group({
-    matricula: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+    matricula: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern("(PGC|pgc)[0-9]{4}[A-Za-z]")]],
     fechaAlta: ["", Validators.required],
     marca: ["", [Validators.required, Validators.minLength(2)]],
     modelo: ["", Validators.required],

@@ -82,7 +82,20 @@
         <div class="col-xl-6">
           <mat-form-field class="fs-5" appearance="outline">
             <mat-label>Unidad Destino</mat-label>
-            <input type="text" matInput formControlName="unidadDestino" [(ngModel)]="vehiculo.unidadDestino" required />
+            <mat-select matInput type="text" formControlName="unidadDestino"
+            [(ngModel)]="vehiculo.unidadDestino" >
+            <mat-option selected></mat-option>
+            <mat-option value="Jefatura Servicios Tecnicos">Jefatura de Servicios Técnicos</mat-option>
+            <mat-option value="Jefatura de Informacion">Jefatura de Informacion</mat-option>
+            <mat-option value="Comandancia de Madrid">Comandancia de Madrid</mat-option>
+            <mat-option value="Compañia de Aranjuez">Compañía de Aranjuez</mat-option>
+            <mat-option value="Puesto Principal de Valdemoro">Puesto Principal de Valdemoro</mat-option>
+            <mat-option value="Puesto de Estremera">Puesto de Estremera</mat-option>
+            <mat-option value="PAPRONA Chinchon">PAPRONA Chinchón</mat-option>
+            <mat-option value="UOPJ de Cáceres">UOPJ de Cáceres</mat-option>
+            <mat-option value="SEREIM Navacerrada">SEREIM Navacerrada</mat-option>
+            <mat-option value="USECIC de Madrid">USECIC de Madrid</mat-option>
+          </mat-select>
           </mat-form-field>
         </div>
 
