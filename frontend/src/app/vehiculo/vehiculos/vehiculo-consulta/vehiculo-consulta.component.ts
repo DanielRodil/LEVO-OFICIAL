@@ -8,7 +8,7 @@ import { VehiculoImpl } from "../../models/vehiculo-impl";
 import { DatosTecnicosInteresService } from "../../service/datos-tecnicos-interes.service";
 import { MantenimientoPreventivoService } from "../../service/mantenimiento-preventivo.service";
 import { VehiculoService } from "../../service/vehiculo.service";
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import { MantenimientoImpl } from "../../models/mantenimiento-impl";
 import { Mantenimiento } from "../../models/mantenimiento";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -65,43 +65,42 @@ export class VehiculoConsultaComponent implements OnInit {
   });
 
   thirdFormGroup = this._formBuilder.group({
-    condicionesUso: [""],
+    condicionesUso: ["", Validators.required],
     observaciones: [""],
-    liquidoFrenosKm: [""],
-    liquidoFrenosMes: [""],
-    operacionesSistematicasKm: [""],
-    operacionesSistematicasMes: [""],
-    filtroAireKm: [""],
-    filtroAireMes: [""],
-    filtroAireHabitaculoKm: [""],
-    filtroAireHabitaculoMes: [""],
-    filtroCombustibleKm: [""],
-    filtroCombustibleMes: [""],
-    filtroAntipolenKm: [""],
-    filtroAntipolenMes: [""],
-    correaDistribucionKm: [""],
-    correaDistribucionMes: [""],
-    kitDistribucionKm: [""],
-    kitDistribucionMes: [""],
-    reglajeProyectoresKm: [""],
-    reglajeProyectoresMes: [""],
-    pHLiquidoRefrigeracionKm: [""],
+    operacionesSistematicasKm: ["", [Validators.required, Validators.min(0)]],
+    operacionesSistematicasMes: ["", [Validators.required, Validators.min(0)]],
+    liquidoFrenosKm: ["", [Validators.required, Validators.min(0)]],
+    liquidoFrenosMes: ["", [Validators.required, Validators.min(0)]],    
+    filtroAireKm: ["", Validators.min(0)],
+    filtroAireMes: ["", Validators.min(0)],
+    filtroAireHabitaculoKm: ["", Validators.min(0)],
+    filtroAireHabitaculoMes: ["", Validators.min(0)],
+    filtroCombustibleKm: ["", Validators.min(0)],
+    filtroCombustibleMes: ["", Validators.min(0)],
+    filtroAntipolenKm: ["", Validators.min(0)],
+    filtroAntipolenMes: ["",Validators.min(0)],
+    correaDistribucionKm: ["", Validators.min(0)],
+    correaDistribucionMes: ["", Validators.min(0)],
+    kitDistribucionKm: ["", Validators.min(0)],
+    kitDistribucionMes: ["", Validators.min(0)],
+    anticongelanteKm: ["", [Validators.required, Validators.min(0)]],
+    anticongelanteMes: ["", [Validators.required, Validators.min(0)]],
+    liquidoRefrigeracionKm: ["", [Validators.required, Validators.min(0)]],
+    liquidoRefrigeracionMes: ["", [Validators.required, Validators.min(0)]],
+    pHLiquidoRefrigeracionKm: ["", Validators.min(0)],
     pHLiquidoRefrigeracionMes: [""],
-    liquidoRefrigeracionKm: [""],
-    liquidoRefrigeracionMes: [""],
-    correaArrastreAccesoriosKm: [""],
-    correaArrastreAccesoriosMes: [""],
-    kitCorreaArrastreAccesoriosKm: [""],
+    reglajeProyectoresKm: ["", Validators.min(0)],
+    reglajeProyectoresMes: ["", Validators.min(0)],
+    correaArrastreAccesoriosKm: ["", Validators.min(0)],
+    correaArrastreAccesoriosMes: ["", Validators.min(0)],
+    kitCorreaArrastreAccesoriosKm: ["", Validators.min(0)],
     kitCorreaArrastreAccesoriosMes: [""],
-    anticongelanteKm: [""],
-    anticongelanteMes: [""],
-    aceiteTransmisionKm: [""],
-    aceiteTransmisionMes: [""],
-    bujiasEncendidoKm: [""],
-    bujiasEncendidoMes: [""],
+    
+    aceiteTransmisionKm: ["", Validators.min(0)],
+    aceiteTransmisionMes: ["", Validators.min(0)],
+    bujiasEncendidoKm: ["", Validators.min(0)],
+    bujiasEncendidoMes: ["", Validators.min(0)],
   });
-
-  fourthFormGroup = this._formBuilder.array;
   constructor(
     private vehiculoService: VehiculoService,
     private datosTecnicosInteresService: DatosTecnicosInteresService,
@@ -117,6 +116,7 @@ export class VehiculoConsultaComponent implements OnInit {
 
     this.vehiculoService.getVehiculo(id).subscribe((response) => {
       this.vehiculo = this.vehiculoService.mapearVehiculo(response);
+      console.log(this.vehiculo)
     });
 
     this.datosTecnicosInteresService
