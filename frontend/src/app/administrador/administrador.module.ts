@@ -8,9 +8,10 @@ import { FormsModule } from "@angular/forms";
 import { BusquedaItemComponent } from "./busqueda-item/busqueda-item.component";
 import { VehiculoModule } from "../vehiculo/vehiculo.module";
 import { AvisokmComponent } from './avisokm/avisokm.component';
+import { AvisomesComponent } from './avisomes/avisomes.component';
 
 @NgModule({
-  declarations: [AdministradorComponent, BusquedaItemComponent, AvisokmComponent],
+  declarations: [AdministradorComponent, BusquedaItemComponent, AvisokmComponent, AvisomesComponent],
   imports: [
     CommonModule,
     AdministradorRoutingModule,

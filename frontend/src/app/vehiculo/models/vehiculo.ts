@@ -19,5 +19,6 @@ export interface Vehiculo {
     kilometrosActuales: number;
     mesesActuales:number;
     avisokms:string;
+    avisomes:string;
 
 }

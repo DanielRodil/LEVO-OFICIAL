@@ -12,6 +12,7 @@ import { Vehiculo } from "../models/vehiculo";
 import { VehiculoImpl } from "../models/vehiculo-impl";
 import { faArrowLeft, faBackwardStep } from "@fortawesome/free-solid-svg-icons";
 import { AvisokmService } from "src/app/administrador/service/avisokm.service";
+import { AvisomesService } from "src/app/administrador/service/avisomes.service";
 
 @Component({
   selector: "app-formulario",
@@ -102,6 +103,7 @@ export class FormularioComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private vehiculoService: VehiculoService,
     private avisoKmService: AvisokmService,
+    private avisomesService: AvisomesService,
     private datosTecnicosInteresService: DatosTecnicosInteresService,
     private mantenimientoPreventivoService: MantenimientoPreventivoService,
     private router: Router,
@@ -136,14 +138,20 @@ export class FormularioComponent implements OnInit {
             this.vehiculo.planespreventivos = planPreventivo._links.planpreventivo.href;
             console.log(this.mantenimientoPreventivo);
             this.vehiculo.kilometrosActuales = 0; //para editar se omite esta linea
+            this.vehiculo.mesesActuales = 0; //para editar se omite esta linea
             this.avisoKmService.crearAvisoKm(this.mantenimientoPreventivo, this.vehiculo.kilometrosActuales ).subscribe(response => {
               this.vehiculo.avisokms = response._links.avisokm.href;
               console.log(response);
-              this.vehiculoService.crearVehiculo(this.vehiculo).subscribe();
+              this.avisomesService.crearAvisoMes(this.mantenimientoPreventivo, this.vehiculo.mesesActuales ).subscribe(response => {
+                this.vehiculo.avisomes = response._links.avisomes.href;
+                console.log(response);
+                this.vehiculoService.crearVehiculo(this.vehiculo).subscribe();
             })
 
+            })
           });
-      });
+      });       
+
     // let id: string = this.cargarId();
     // this.router.navigate([`/vehiculos/consultar/${id}`]);
   }

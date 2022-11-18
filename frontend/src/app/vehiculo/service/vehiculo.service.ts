@@ -50,6 +50,7 @@ export class VehiculoService {
     vehiculo.datosTecnicosInteres = vehiculoApi._links.datosTecnicosInteres.href;
     vehiculo.planespreventivos = vehiculoApi._links.planespreventivos.href;
     vehiculo.avisokms = vehiculoApi._links.avisokms.href;
+    vehiculo.avisomes = vehiculoApi._links.avisomes.href;
     return vehiculo;
   }
 

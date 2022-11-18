@@ -5,7 +5,10 @@ import { Vehiculo } from 'src/app/vehiculo/models/vehiculo';
 import { VehiculoImpl } from 'src/app/vehiculo/models/vehiculo-impl';
 import { Avisokm } from '../models/avisokm';
 import { AvisokmImpl } from '../models/avisokm-impl';
+import { Avisomes } from '../models/avisomes';
+import { AvisomesImpl } from '../models/avisomes-impl';
 import { AvisokmService } from '../service/avisokm.service';
+import { AvisomesService } from '../service/avisomes.service';
 
 @Component({
   selector: 'app-busqueda-item',
@@ -22,12 +25,18 @@ export class BusquedaItemComponent implements OnInit {
   @Output() vehiculoEditar = new EventEmitter<Vehiculo>();
 
   avisokm: Avisokm = new AvisokmImpl;
+  avisomes: Avisomes = new AvisomesImpl;
 
-  constructor(private avisokmService: AvisokmService) { }
-
+  constructor(private avisokmService: AvisokmService,
+              private avisomesService: AvisomesService ) { }
+  
   ngOnInit(): void {
     this.avisokmService.getAvisoKmBusqueda(this.vehiculo.avisokms).subscribe(response => {
       this.avisokm = this.avisokmService.extraerAvisoKm(response);
+      console.log(response);
+    })
+    this.avisomesService.getAvisoMesBusqueda(this.vehiculo.avisomes).subscribe(response => {
+      this.avisomes = this.avisomesService.extraerAvisoMes(response);
       console.log(response);
     })
   }

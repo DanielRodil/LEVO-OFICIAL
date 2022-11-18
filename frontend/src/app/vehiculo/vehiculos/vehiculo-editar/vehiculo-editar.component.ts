@@ -4,7 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Avisokm } from 'src/app/administrador/models/avisokm';
 import { AvisokmImpl } from 'src/app/administrador/models/avisokm-impl';
+import { Avisomes } from 'src/app/administrador/models/avisomes';
+import { AvisomesImpl } from 'src/app/administrador/models/avisomes-impl';
 import { AvisokmService } from 'src/app/administrador/service/avisokm.service';
+import { AvisomesService } from 'src/app/administrador/service/avisomes.service';
 import { environment } from 'src/environments/environment.prod';
 import { DatosTecnicosInteres } from '../../models/datos-tecnicos-interes';
 import { DatosTecnicosInteresImpl } from '../../models/datos-tecnicos-interes-impl';
@@ -32,6 +35,7 @@ export class VehiculoEditarComponent implements OnInit {
   datosTecnicosInteres: DatosTecnicosInteres = new DatosTecnicosInteresImpl();
   mantenimientoPreventivo: MantenimientoPreventivo = new MantenimientoPreventivoImpl();
   avisokm: Avisokm = new AvisokmImpl();
+  avisomes: Avisomes = new AvisomesImpl();
   mantenimientoPreventivoVerDatos: MantenimientoPreventivoImpl = new MantenimientoPreventivoImpl();
   datosTecnicosInteresVerDatos: DatosTecnicosInteresImpl = new DatosTecnicosInteresImpl();
   mantenimientoVerDatos: Mantenimiento = new MantenimientoImpl();
@@ -112,6 +116,7 @@ export class VehiculoEditarComponent implements OnInit {
     private datosTecnicosInteresService: DatosTecnicosInteresService,
     private mantenimientoPreventivoService: MantenimientoPreventivoService,
     private avisokmService: AvisokmService,
+    private avisomesService: AvisomesService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private _formBuilder: FormBuilder,
@@ -133,6 +138,10 @@ export class VehiculoEditarComponent implements OnInit {
           console.log(response);
           this.avisokm = this.avisokmService.mapearAvisokm(response)
           })
+        this.avisomesService.getAvisoMes(id).subscribe(response => {
+          console.log(response);
+          this.avisomes = this.avisomesService.mapearAvisoMes(response)
+          })
         })
       })
     })
@@ -148,6 +157,8 @@ export class VehiculoEditarComponent implements OnInit {
     this.vehiculo.datosTecnicosInteres = `${this.urlEndpoint}datostecnicosinteres/${this.datosTecnicosInteres.id}`;
     this.vehiculo.planespreventivos = `${this.urlEndpoint}planespreventivos/${this.mantenimientoPreventivo.id}`;
     this.vehiculo.avisokms = `${this.urlEndpoint}avisokms/${this.avisokm.id}`;
+    this.vehiculo.avisomes = `${this.urlEndpoint}avisomeses/${this.avisomes.id}`;
+
     console.log(this.avisokm.id);
 
     this.vehiculoService.updateVehiculo(this.vehiculo).subscribe();
@@ -164,6 +175,10 @@ export class VehiculoEditarComponent implements OnInit {
       .updateAvisokm(this.avisokm, this.mantenimientoPreventivo, this.vehiculo.kilometrosActuales)
       .subscribe();
 
+    this.avisomesService
+      .updateAvisoMes(this.avisomes, this.mantenimientoPreventivo, this.vehiculo.mesesActuales)
+      .subscribe();
+
     this.router.navigate([`administrador/consultar/${this.vehiculo.id}`]);
   }
 
@@ -171,6 +186,8 @@ export class VehiculoEditarComponent implements OnInit {
     this.vehiculo.datosTecnicosInteres = `${this.urlEndpoint}datostecnicosinteres/${this.datosTecnicosInteres.id}`;
     this.vehiculo.planespreventivos = `${this.urlEndpoint}planespreventivos/${this.mantenimientoPreventivo.id}`;
     this.vehiculo.avisokms = `${this.urlEndpoint}avisokms/${this.avisokm.id}`;
+    this.vehiculo.avisomes = `${this.urlEndpoint}avisomeses/${this.avisomes.id}`;
+
     console.log(this.avisokm.id);
 
     this.vehiculoService.updateVehiculo(this.vehiculo).subscribe();

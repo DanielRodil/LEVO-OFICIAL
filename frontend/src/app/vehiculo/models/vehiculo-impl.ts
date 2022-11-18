@@ -20,6 +20,8 @@ export class VehiculoImpl {
     unidadDestino!: string;
     fechaAdjudicacion!: Date;
     avisokms!: string;
+    avisomes!: string;
+
 
         constructor(){}
 }
