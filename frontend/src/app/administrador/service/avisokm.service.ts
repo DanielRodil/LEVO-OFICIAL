@@ -56,21 +56,22 @@ export class AvisokmService {
     let avisokm: Avisokm = new AvisokmImpl();
     console.log(mantenimientoPreventivo);
 
-    avisokm.avisoLiquidoFrenosKm = mantenimientoPreventivo.liquidoFrenosKm - kilometrosActuales;
-    avisokm.avisoOperacionesSistematicasKm = mantenimientoPreventivo.operacionesSistematicasKm - kilometrosActuales;
-    avisokm.avisoFiltroAireKm = mantenimientoPreventivo.filtroAireKm - kilometrosActuales;
-    avisokm.avisoFiltroAireHabitaculoKm = mantenimientoPreventivo.filtroAireHabitaculoKm - kilometrosActuales;
-    avisokm.avisoFiltroAntipolenKm = mantenimientoPreventivo.filtroAntipolenKm - kilometrosActuales;
-    avisokm.avisoCorreaDistribucionKm = mantenimientoPreventivo.correaDistribucionKm - kilometrosActuales;
-    avisokm.avisoKitDistribucionKm = mantenimientoPreventivo.kitDistribucionKm - kilometrosActuales;
-    avisokm.avisoReglajeProyectoresKm = mantenimientoPreventivo.reglajeProyectoresKm - kilometrosActuales;
-    avisokm.avisoPhLiquidoRefrigeracionKm = mantenimientoPreventivo.pHLiquidoRefrigeracionKm - kilometrosActuales;
-    avisokm.avisoLiquidoRefrigeracionKm = mantenimientoPreventivo.liquidoRefrigeracionKm - kilometrosActuales;
-    avisokm.avisoCorreaArrastreAccesoriosKm = mantenimientoPreventivo.correaArrastreAccesoriosKm - kilometrosActuales;
-    avisokm.avisoKitCorreaArrastreAccesoriosKm = mantenimientoPreventivo.kitCorreaArrastreAccesoriosKm - kilometrosActuales;
-    avisokm.avisoAnticongelanteKm = mantenimientoPreventivo.anticongelanteKm - kilometrosActuales;
-    avisokm.avisoAceiteTransimisionKm = mantenimientoPreventivo.aceiteTransmisionKm - kilometrosActuales;
-    avisokm.avisoBujiasEncendidoKm = mantenimientoPreventivo.bujiasEncendidoKm - kilometrosActuales;
+    avisokm.avisoLiquidoFrenosKm = this.actualizarKilometros(mantenimientoPreventivo.liquidoFrenosKm, kilometrosActuales);  
+    avisokm.avisoOperacionesSistematicasKm = this.actualizarKilometros(mantenimientoPreventivo.operacionesSistematicasKm, kilometrosActuales)
+    avisokm.avisoFiltroAireKm = this.actualizarKilometros(mantenimientoPreventivo.filtroAireKm, kilometrosActuales);
+    avisokm.avisoFiltroAireHabitaculoKm = this.actualizarKilometros(mantenimientoPreventivo.filtroAireHabitaculoKm, kilometrosActuales);
+    avisokm.avisoFiltroCombustibleKm = this.actualizarKilometros(mantenimientoPreventivo.filtroCombustibleKm , kilometrosActuales);
+    avisokm.avisoFiltroAntipolenKm = this.actualizarKilometros(mantenimientoPreventivo.filtroAntipolenKm, kilometrosActuales);
+    avisokm.avisoCorreaDistribucionKm = this.actualizarKilometros(mantenimientoPreventivo.correaDistribucionKm, kilometrosActuales);
+    avisokm.avisoKitDistribucionKm = this.actualizarKilometros(mantenimientoPreventivo.kitDistribucionKm, kilometrosActuales);
+    avisokm.avisoReglajeProyectoresKm = this.actualizarKilometros(mantenimientoPreventivo.reglajeProyectoresKm, kilometrosActuales);
+    avisokm.avisoPhLiquidoRefrigeracionKm = this.actualizarKilometros(mantenimientoPreventivo.pHLiquidoRefrigeracionKm, kilometrosActuales);
+    avisokm.avisoLiquidoRefrigeracionKm = this.actualizarKilometros(mantenimientoPreventivo.liquidoRefrigeracionKm, kilometrosActuales);
+    avisokm.avisoCorreaArrastreAccesoriosKm = this.actualizarKilometros(mantenimientoPreventivo.correaArrastreAccesoriosKm, kilometrosActuales);
+    avisokm.avisoKitCorreaArrastreAccesoriosKm = this.actualizarKilometros(mantenimientoPreventivo.kitCorreaArrastreAccesoriosKm, kilometrosActuales);
+    avisokm.avisoAnticongelanteKm = this.actualizarKilometros(mantenimientoPreventivo.anticongelanteKm, kilometrosActuales);
+    avisokm.avisoAceiteTransimisionKm = this.actualizarKilometros(mantenimientoPreventivo.aceiteTransmisionKm, kilometrosActuales);
+    avisokm.avisoBujiasEncendidoKm = this.actualizarKilometros(mantenimientoPreventivo.bujiasEncendidoKm , kilometrosActuales);
 
     console.log(avisokm);
 
@@ -89,21 +90,22 @@ export class AvisokmService {
 
   updateAvisokm(avisokm: Avisokm,mantenimientoPreventivo: MantenimientoPreventivo, kilometrosActuales: number): Observable<any> {
 
-    avisokm.avisoLiquidoFrenosKm = mantenimientoPreventivo.liquidoFrenosKm - kilometrosActuales;
-    avisokm.avisoOperacionesSistematicasKm = mantenimientoPreventivo.operacionesSistematicasKm - kilometrosActuales;
-    avisokm.avisoFiltroAireKm = mantenimientoPreventivo.filtroAireKm - kilometrosActuales;
-    avisokm.avisoFiltroAireHabitaculoKm = mantenimientoPreventivo.filtroAireHabitaculoKm - kilometrosActuales;
-    avisokm.avisoFiltroAntipolenKm = mantenimientoPreventivo.filtroAntipolenKm - kilometrosActuales;
-    avisokm.avisoCorreaDistribucionKm = mantenimientoPreventivo.correaDistribucionKm - kilometrosActuales;
-    avisokm.avisoKitDistribucionKm = mantenimientoPreventivo.kitDistribucionKm - kilometrosActuales;
-    avisokm.avisoReglajeProyectoresKm = mantenimientoPreventivo.reglajeProyectoresKm - kilometrosActuales;
-    avisokm.avisoPhLiquidoRefrigeracionKm = mantenimientoPreventivo.pHLiquidoRefrigeracionKm - kilometrosActuales;
-    avisokm.avisoLiquidoRefrigeracionKm = mantenimientoPreventivo.liquidoRefrigeracionKm - kilometrosActuales;
-    avisokm.avisoCorreaArrastreAccesoriosKm = mantenimientoPreventivo.correaArrastreAccesoriosKm - kilometrosActuales;
-    avisokm.avisoKitCorreaArrastreAccesoriosKm = mantenimientoPreventivo.kitCorreaArrastreAccesoriosKm - kilometrosActuales;
-    avisokm.avisoAnticongelanteKm = mantenimientoPreventivo.anticongelanteKm - kilometrosActuales;
-    avisokm.avisoAceiteTransimisionKm = mantenimientoPreventivo.aceiteTransmisionKm - kilometrosActuales;
-    avisokm.avisoBujiasEncendidoKm = mantenimientoPreventivo.bujiasEncendidoKm - kilometrosActuales;
+    avisokm.avisoLiquidoFrenosKm = this.actualizarKilometros(mantenimientoPreventivo.liquidoFrenosKm, kilometrosActuales);  
+    avisokm.avisoOperacionesSistematicasKm = this.actualizarKilometros(mantenimientoPreventivo.operacionesSistematicasKm, kilometrosActuales)
+    avisokm.avisoFiltroAireKm = this.actualizarKilometros(mantenimientoPreventivo.filtroAireKm, kilometrosActuales);
+    avisokm.avisoFiltroAireHabitaculoKm = this.actualizarKilometros(mantenimientoPreventivo.filtroAireHabitaculoKm, kilometrosActuales);
+    avisokm.avisoFiltroCombustibleKm = this.actualizarKilometros(mantenimientoPreventivo.filtroCombustibleKm , kilometrosActuales);
+    avisokm.avisoFiltroAntipolenKm = this.actualizarKilometros(mantenimientoPreventivo.filtroAntipolenKm, kilometrosActuales);
+    avisokm.avisoCorreaDistribucionKm = this.actualizarKilometros(mantenimientoPreventivo.correaDistribucionKm, kilometrosActuales);
+    avisokm.avisoKitDistribucionKm = this.actualizarKilometros(mantenimientoPreventivo.kitDistribucionKm, kilometrosActuales);
+    avisokm.avisoReglajeProyectoresKm = this.actualizarKilometros(mantenimientoPreventivo.reglajeProyectoresKm, kilometrosActuales);
+    avisokm.avisoPhLiquidoRefrigeracionKm = this.actualizarKilometros(mantenimientoPreventivo.pHLiquidoRefrigeracionKm, kilometrosActuales);
+    avisokm.avisoLiquidoRefrigeracionKm = this.actualizarKilometros(mantenimientoPreventivo.liquidoRefrigeracionKm, kilometrosActuales);
+    avisokm.avisoCorreaArrastreAccesoriosKm = this.actualizarKilometros(mantenimientoPreventivo.correaArrastreAccesoriosKm, kilometrosActuales);
+    avisokm.avisoKitCorreaArrastreAccesoriosKm = this.actualizarKilometros(mantenimientoPreventivo.kitCorreaArrastreAccesoriosKm, kilometrosActuales);
+    avisokm.avisoAnticongelanteKm = this.actualizarKilometros(mantenimientoPreventivo.anticongelanteKm, kilometrosActuales);
+    avisokm.avisoAceiteTransimisionKm = this.actualizarKilometros(mantenimientoPreventivo.aceiteTransmisionKm, kilometrosActuales);
+    avisokm.avisoBujiasEncendidoKm = this.actualizarKilometros(mantenimientoPreventivo.bujiasEncendidoKm , kilometrosActuales);
     avisokm.mensajeKm = "";
 
     return this.http
@@ -119,6 +121,17 @@ export class AvisokmService {
           return throwError(() => new Error(e));
         })
       );
+  }
+
+  actualizarKilometros(propiedad: any, kilometros: number){
+
+    if (propiedad != 0) {
+      console.log(propiedad);
+      console.log(kilometros);
+      return (propiedad - kilometros);
+    } else {
+      return 0;
+    }
   }
 
   getAvisoKm(id: string): Observable<any> {
