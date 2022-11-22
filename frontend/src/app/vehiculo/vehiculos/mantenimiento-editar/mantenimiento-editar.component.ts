@@ -37,7 +37,7 @@ export class MantenimientoEditarComponent implements OnInit {
 
   ngOnInit(): void {
     let id: string = this.cargarMantenimiento();
-    console.log(id);
+    
     this.mantenimientoService
       .getMantenimientoVehiculo(id)
       .subscribe((response) => {
@@ -68,7 +68,7 @@ export class MantenimientoEditarComponent implements OnInit {
 
   goBack(){
     let url = `administrador`;
-    console.log(url);
+    
     this.router.navigate([url]);
   }
 

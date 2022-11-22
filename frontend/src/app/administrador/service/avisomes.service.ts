@@ -54,7 +54,6 @@ export class AvisomesService {
 
   crearAvisoMes(mantenimientoPreventivo: MantenimientoPreventivo, mesesActuales: number): Observable<any> {
     let avisomes: Avisomes = new AvisomesImpl();
-    console.log(mantenimientoPreventivo);
 
     avisomes.avisoLiquidoFrenosMes = mantenimientoPreventivo.liquidoFrenosMes - mesesActuales;
     avisomes.avisoOperacionesSistematicasMes = mantenimientoPreventivo.operacionesSistematicasMes - mesesActuales;
@@ -73,7 +72,7 @@ export class AvisomesService {
     avisomes.avisoAceiteTransimisionMes = mantenimientoPreventivo.aceiteTransmisionMes - mesesActuales;
     avisomes.avisoBujiasEncendidoMes = mantenimientoPreventivo.bujiasEncendidoMes - mesesActuales;
 
-    console.log(avisomes);
+  
 
     return this.http.post(`${this.urlEndPoint}`, avisomes).pipe(
       catchError((e) => {
@@ -128,7 +127,7 @@ export class AvisomesService {
   }
 
   getAvisoMesBusqueda(id: string): Observable<any> {
-    console.log(id);
+    
     return this.http.get<any>(id);
   }
 

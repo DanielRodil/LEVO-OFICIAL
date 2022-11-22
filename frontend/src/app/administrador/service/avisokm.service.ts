@@ -54,7 +54,7 @@ export class AvisokmService {
 
   crearAvisoKm(mantenimientoPreventivo: MantenimientoPreventivo, kilometrosActuales: number): Observable<any> {
     let avisokm: Avisokm = new AvisokmImpl();
-    console.log(mantenimientoPreventivo);
+
 
     avisokm.avisoLiquidoFrenosKm = this.actualizarKilometros(mantenimientoPreventivo.liquidoFrenosKm, kilometrosActuales);  
     avisokm.avisoOperacionesSistematicasKm = this.actualizarKilometros(mantenimientoPreventivo.operacionesSistematicasKm, kilometrosActuales)
@@ -73,7 +73,7 @@ export class AvisokmService {
     avisokm.avisoAceiteTransimisionKm = this.actualizarKilometros(mantenimientoPreventivo.aceiteTransmisionKm, kilometrosActuales);
     avisokm.avisoBujiasEncendidoKm = this.actualizarKilometros(mantenimientoPreventivo.bujiasEncendidoKm , kilometrosActuales);
 
-    console.log(avisokm);
+
 
     return this.http.post(`${this.urlEndPoint}`, avisokm).pipe(
       catchError((e) => {
@@ -126,8 +126,6 @@ export class AvisokmService {
   actualizarKilometros(propiedad: any, kilometros: number){
 
     if (propiedad != 0) {
-      console.log(propiedad);
-      console.log(kilometros);
       return (propiedad - kilometros);
     } else {
       return 0;
@@ -139,7 +137,7 @@ export class AvisokmService {
   }
 
   getAvisoKmBusqueda(id: string): Observable<any> {
-    console.log(id);
+
     return this.http.get<any>(id);
   }
 

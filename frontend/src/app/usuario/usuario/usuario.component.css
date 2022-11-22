@@ -98,7 +98,7 @@ div.overflow-hidden{
 
 
   #tituloLogin{
-    margin-left: 15rem;
+    margin-left: 10rem;
     margin-bottom: 2rem;
     text-align: center;
     font-weight: bolder;
@@ -110,3 +110,13 @@ div.overflow-hidden{
     width: 50%;
     margin-left: 12rem;
   }
+
+  #vehiculoIncorrecto{
+    color:red;
+    margin-top: 2rem;
+    margin-left:12rem;
+  }
+
+  fa-icon{
+    margin-left: -12rem;
+    padding-top: 8rem;}

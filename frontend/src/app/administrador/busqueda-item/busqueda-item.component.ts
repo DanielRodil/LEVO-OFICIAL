@@ -33,11 +33,11 @@ export class BusquedaItemComponent implements OnInit {
   ngOnInit(): void {
     this.avisokmService.getAvisoKmBusqueda(this.vehiculo.avisokms).subscribe(response => {
       this.avisokm = this.avisokmService.extraerAvisoKm(response);
-      console.log(response);
+
     })
     this.avisomesService.getAvisoMesBusqueda(this.vehiculo.avisomes).subscribe(response => {
       this.avisomes = this.avisomesService.extraerAvisoMes(response);
-      console.log(response);
+
     })
   }
 

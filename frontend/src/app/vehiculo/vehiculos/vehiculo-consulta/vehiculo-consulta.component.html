@@ -4,8 +4,8 @@
   <p class="fs-x">{{vehiculo.matricula|uppercase}}</p>
   </div>
   <div class=" col-2">
-    <a id="volver"><fa-icon [icon]="volver" (click)="goBack()"></fa-icon>
-    Volver</a>
+    <p id="volver"><fa-icon [icon]="volver" (click)="goBack()"></fa-icon>
+    Volver</p>
   </div>
 </div>
 
@@ -306,7 +306,7 @@
                 <tbody>
 
                   <tr>
-                    <th scope="row">* Operaciones Sistemáticas(**)</th>
+                    <th scope="row">*Operaciones Sistemáticas(**)</th>
                     <td>
                       <input matInput type="number" formControlName="operacionesSistematicasKm"
                         [(ngModel)]="mantenimientoPreventivo.operacionesSistematicasKm">

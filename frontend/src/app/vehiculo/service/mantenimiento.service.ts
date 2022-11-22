@@ -31,7 +31,7 @@ export class MantenimientoService {
     respuestaApi._embedded.mantenimientosrealizados.forEach((a: any) => {
       mantenimientos.push(this.mapearMantenimiento(a));
     });
-    console.log(mantenimientos)
+    
     return mantenimientos;
   }
 

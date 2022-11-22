@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, UrlSerializer } from '@angular/router';
+import { faBroom } from '@fortawesome/free-solid-svg-icons';
 import { DatosTecnicosInteresImpl } from 'src/app/vehiculo/models/datos-tecnicos-interes-impl';
 import { MantenimientoPreventivoImpl } from 'src/app/vehiculo/models/planes-preventivos-impl';
 import { Vehiculo } from 'src/app/vehiculo/models/vehiculo';
@@ -19,6 +20,8 @@ export class UsuarioComponent implements OnInit {
   vehiculoVerDatos: Vehiculo = new VehiculoImpl();
   datosTecnicosInteres!: DatosTecnicosInteresImpl;
   mantenimientoPreventivo!: MantenimientoPreventivoImpl;
+
+  vehiculoIncorrecto: string='';
 
   user:any=localStorage.getItem('usuario');
   constructor( 
@@ -46,9 +49,17 @@ export class UsuarioComponent implements OnInit {
       .getBusquedaPorMatricula(matricula)
       .subscribe((response) => {
         this.vehiculos = this.vehiculoService.extraerVehiculos(response);
+        if(this.vehiculos.length==0){
+        this.vehiculoIncorrecto="El vehiculo no se encuentra en el sistema"
+      }
       });
       
   }
 
+  clear(){
+    this.matricula='';
+    this.vehiculoIncorrecto='';
+  }
 
+  limpiar=faBroom
 }

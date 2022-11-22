@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   
   
   goBack(){
-    console.log(this.rol);
+  
     if(this.rol=='ADMIN'){
       this.router.navigate(['/administrador']);
     }

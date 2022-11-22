@@ -135,11 +135,11 @@ export class VehiculoEditarComponent implements OnInit {
         this.mantenimientoPreventivoService.getPP(id).subscribe(response => {
           this.mantenimientoPreventivo = this.mantenimientoPreventivoService.mapearMantenimientoPreventivo(response);
         this.avisokmService.getAvisoKm(id).subscribe(response => {
-          console.log(response);
+          
           this.avisokm = this.avisokmService.mapearAvisokm(response)
           })
         this.avisomesService.getAvisoMes(id).subscribe(response => {
-          console.log(response);
+         
           this.avisomes = this.avisomesService.mapearAvisoMes(response)
           })
         })
@@ -159,7 +159,7 @@ export class VehiculoEditarComponent implements OnInit {
     this.vehiculo.avisokms = `${this.urlEndpoint}avisokms/${this.avisokm.id}`;
     this.vehiculo.avisomes = `${this.urlEndpoint}avisomeses/${this.avisomes.id}`;
 
-    console.log(this.avisokm.id);
+ 
 
     this.vehiculoService.updateVehiculo(this.vehiculo).subscribe();
 
@@ -188,7 +188,7 @@ export class VehiculoEditarComponent implements OnInit {
     this.vehiculo.avisokms = `${this.urlEndpoint}avisokms/${this.avisokm.id}`;
     this.vehiculo.avisomes = `${this.urlEndpoint}avisomeses/${this.avisomes.id}`;
 
-    console.log(this.avisokm.id);
+   
 
     this.vehiculoService.updateVehiculo(this.vehiculo).subscribe();
 
@@ -217,7 +217,7 @@ export class VehiculoEditarComponent implements OnInit {
 
   onMantenimientoEditar(mantenimiento: MantenimientoImpl) {
     this.verDatosMR(mantenimiento);
-    console.log(mantenimiento)
+   
     let url = `administrador/mantenimientosrealizados/editar/${mantenimiento.id}`;
     this.router.navigate([url]);
   }
@@ -235,7 +235,7 @@ export class VehiculoEditarComponent implements OnInit {
   rol:any=sessionStorage.getItem('ROLE');
   
 goBack(){
-  console.log(this.rol);
+  
   if(this.rol=='ADMIN'){
     this.router.navigate(['/administrador']);
   }

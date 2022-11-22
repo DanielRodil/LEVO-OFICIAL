@@ -27,3 +27,12 @@ main {
 .mat-form-field-appearance-outline .mat-form-field-outline-thick {
   color: #004d00;
 }
+
+#volver{
+  color:#fafbfb;
+  margin-top: .8rem;
+}
+
+table th{
+  text-align: left;
+}

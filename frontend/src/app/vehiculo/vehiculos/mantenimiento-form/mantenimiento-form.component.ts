@@ -44,7 +44,7 @@ export class MantenimientoFormComponent implements OnInit {
 
   ngOnInit(): void {
     let id: string = this.cargarId();
-    console.log(id);
+   
     this.vehiculoService.getVehiculo(id).subscribe((response) => {
       this.vehiculo = this.vehiculoService.mapearVehiculo(response);
       this.datosTecnicosInteresService.getDatosTecnicosInteresVehiculo(id).subscribe(response => {
@@ -54,7 +54,7 @@ export class MantenimientoFormComponent implements OnInit {
           this.avisokmService.getAvisoKm(id).subscribe(response => {
             this.avisokm = this.avisokmService.mapearAvisokm(response)
             })
-          console.log(this.vehiculo);
+         
     });
   }
 

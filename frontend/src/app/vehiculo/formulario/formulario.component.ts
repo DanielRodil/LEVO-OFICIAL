@@ -135,15 +135,14 @@ export class FormularioComponent implements OnInit {
           .crearMantenimientoPreventivo(this.mantenimientoPreventivo)
           .subscribe((planPreventivo) => {
             this.vehiculo.planespreventivos = planPreventivo._links.planpreventivo.href;
-            console.log(this.mantenimientoPreventivo);
+           
             this.vehiculo.kilometrosActuales = 0; //para editar se omite esta linea
             this.vehiculo.mesesActuales = 0; //para editar se omite esta linea
             this.avisoKmService.crearAvisoKm(this.mantenimientoPreventivo, this.vehiculo.kilometrosActuales ).subscribe(response => {
               this.vehiculo.avisokms = response._links.avisokm.href;
-              console.log(response);
-              this.avisomesService.crearAvisoMes(this.mantenimientoPreventivo, this.vehiculo.mesesActuales ).subscribe(response => {
+                            this.avisomesService.crearAvisoMes(this.mantenimientoPreventivo, this.vehiculo.mesesActuales ).subscribe(response => {
                 this.vehiculo.avisomes = response._links.avisomes.href;
-                console.log(response);
+                
                 this.vehiculoService.crearVehiculo(this.vehiculo).subscribe();
             })
 

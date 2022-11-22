@@ -55,14 +55,14 @@ input {
 
 .checkbox{
   margin-top: 1.2rem;
-  margin-left: -26rem;
+  margin-left: -22rem;
 }
 
 span{
-  margin-left:-23rem;
+  margin-left:-18rem;
 }
 #usuarioIncorrecto{
   color:red;
   margin-top: 2rem;
-  margin-left:12rem;
+  margin-left:8rem;
 }

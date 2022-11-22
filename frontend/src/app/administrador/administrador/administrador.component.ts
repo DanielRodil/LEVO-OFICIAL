@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { faBroom, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 import { DatosTecnicosInteresImpl } from "src/app/vehiculo/models/datos-tecnicos-interes-impl";
 import { MantenimientoPreventivoImpl } from "src/app/vehiculo/models/planes-preventivos-impl";
 import { Vehiculo } from "src/app/vehiculo/models/vehiculo";
@@ -13,10 +14,13 @@ import { VehiculoService } from "src/app/vehiculo/service/vehiculo.service";
 })
 export class AdministradorComponent implements OnInit {
   matricula: string = "";
+  vehiculo:Vehiculo=new VehiculoImpl();
   vehiculos: Vehiculo[] = [];
   vehiculoVerDatos: Vehiculo = new VehiculoImpl();
   datosTecnicosInteres!: DatosTecnicosInteresImpl;
   mantenimientoPreventivo!: MantenimientoPreventivoImpl;
+
+  vehiculoIncorrecto: string='';
   
   user:any=sessionStorage.getItem('usuario');
   
@@ -33,7 +37,6 @@ export class AdministradorComponent implements OnInit {
   onVehiculoConsultar(vehiculo: Vehiculo) {
 
     this.verDatos(vehiculo);
-    console.log(vehiculo);
     let url = `administrador/consultar/${vehiculo.id}`;
     this.router.navigate([url]);
   }
@@ -42,12 +45,14 @@ export class AdministradorComponent implements OnInit {
     this.vehiculoVerDatos = vehiculo;
   }
 
-  vehiculoBuscado(matricula: string) {
+  vehiculoBuscado(matricula: string) {       
     this.vehiculoService
       .getBusquedaPorMatricula(matricula)
       .subscribe((response) => {
         this.vehiculos = this.vehiculoService.extraerVehiculos(response);
-        console.log(response);
+        if(this.vehiculos.length==0){
+          this.vehiculoIncorrecto="El vehiculo no se encuentra en el sistema"
+        };
       });
   
   }
@@ -63,4 +68,11 @@ export class AdministradorComponent implements OnInit {
     let url = `administrador/editar/${vehiculo.id}`;
     this.router.navigate([url]);
   }
+
+  clear(){
+    this.matricula='';
+    this.vehiculoIncorrecto='';
+  }
+
+  limpiar=faBroom
 }

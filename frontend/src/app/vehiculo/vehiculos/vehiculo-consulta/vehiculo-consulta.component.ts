@@ -131,11 +131,11 @@ export class VehiculoConsultaComponent implements OnInit {
         this.mantenimientoPreventivoService.getPP(id).subscribe(response => {
           this.mantenimientoPreventivo = this.mantenimientoPreventivoService.mapearMantenimientoPreventivo(response);
         this.avisokmService.getAvisoKm(id).subscribe(response => {
-          console.log(response);
+       
           this.avisokm = this.avisokmService.mapearAvisokm(response)
           })
         this.avisomesService.getAvisoMes(id).subscribe(response => {
-          console.log(response);
+          
           this.avisomes = this.avisomesService.mapearAvisoMes(response)
           })
         })
@@ -165,7 +165,7 @@ export class VehiculoConsultaComponent implements OnInit {
   
   
   goBack(){
-    console.log(this.rol);
+    
     if(this.rol=='ADMIN'){
       this.router.navigate(['/administrador']);
     }
