@@ -56,22 +56,22 @@ export class AvisomesService {
     let avisomes: Avisomes = new AvisomesImpl();
     console.log(mantenimientoPreventivo);
 
-    avisomes.avisoLiquidoFrenosMes = mantenimientoPreventivo.liquidoFrenosMes - mesesActuales;
-    avisomes.avisoOperacionesSistematicasMes = mantenimientoPreventivo.operacionesSistematicasMes - mesesActuales;
-    avisomes.avisoFiltroAireMes = mantenimientoPreventivo.filtroAireMes - mesesActuales;
-    avisomes.avisoFiltroAireHabitaculoMes = mantenimientoPreventivo.filtroAireHabitaculoMes - mesesActuales;
-    avisomes.avisoFiltroCombustibleMes = mantenimientoPreventivo.filtroCombustibleMes - mesesActuales;
-    avisomes.avisoFiltroAntipolenMes = mantenimientoPreventivo.filtroAntipolenMes - mesesActuales;
-    avisomes.avisoCorreaDistribucionMes = mantenimientoPreventivo.correaDistribucionMes - mesesActuales;
-    avisomes.avisoKitDistribucionMes = mantenimientoPreventivo.kitDistribucionMes - mesesActuales;
-    avisomes.avisoReglajeProyectoresMes = mantenimientoPreventivo.reglajeProyectoresMes - mesesActuales;
-    avisomes.avisoPhLiquidoRefrigeracionMes = mantenimientoPreventivo.pHLiquidoRefrigeracionMes - mesesActuales;
-    avisomes.avisoLiquidoRefrigeracionMes = mantenimientoPreventivo.liquidoRefrigeracionMes - mesesActuales;
-    avisomes.avisoCorreaArrastreAccesoriosMes = mantenimientoPreventivo.correaArrastreAccesoriosMes - mesesActuales;
-    avisomes.avisoKitCorreaArrastreAccesoriosMes = mantenimientoPreventivo.kitCorreaArrastreAccesoriosMes - mesesActuales;
-    avisomes.avisoAnticongelanteMes = mantenimientoPreventivo.anticongelanteMes - mesesActuales;
-    avisomes.avisoAceiteTransimisionMes = mantenimientoPreventivo.aceiteTransmisionMes - mesesActuales;
-    avisomes.avisoBujiasEncendidoMes = mantenimientoPreventivo.bujiasEncendidoMes - mesesActuales;
+    avisomes.avisoLiquidoFrenosMes = this.actualizarMeses(mantenimientoPreventivo.liquidoFrenosMes, mesesActuales);
+    avisomes.avisoOperacionesSistematicasMes = this.actualizarMeses(mantenimientoPreventivo.operacionesSistematicasMes, mesesActuales);
+    avisomes.avisoFiltroAireMes = this.actualizarMeses(mantenimientoPreventivo.filtroAireMes, mesesActuales);
+    avisomes.avisoFiltroAireHabitaculoMes = this.actualizarMeses(mantenimientoPreventivo.filtroAireHabitaculoMes, mesesActuales);
+    avisomes.avisoFiltroCombustibleMes = this.actualizarMeses(mantenimientoPreventivo.filtroCombustibleMes, mesesActuales);
+    avisomes.avisoFiltroAntipolenMes = this.actualizarMeses(mantenimientoPreventivo.filtroAntipolenMes, mesesActuales);
+    avisomes.avisoCorreaDistribucionMes = this.actualizarMeses(mantenimientoPreventivo.correaDistribucionMes, mesesActuales);
+    avisomes.avisoKitDistribucionMes = this.actualizarMeses(mantenimientoPreventivo.kitDistribucionMes, mesesActuales);
+    avisomes.avisoReglajeProyectoresMes = this.actualizarMeses(mantenimientoPreventivo.reglajeProyectoresMes, mesesActuales);
+    avisomes.avisoPhLiquidoRefrigeracionMes = this.actualizarMeses(mantenimientoPreventivo.pHLiquidoRefrigeracionMes, mesesActuales);
+    avisomes.avisoLiquidoRefrigeracionMes = this.actualizarMeses(mantenimientoPreventivo.liquidoRefrigeracionMes, mesesActuales);
+    avisomes.avisoCorreaArrastreAccesoriosMes = this.actualizarMeses(mantenimientoPreventivo.correaArrastreAccesoriosMes, mesesActuales);
+    avisomes.avisoKitCorreaArrastreAccesoriosMes = this.actualizarMeses(mantenimientoPreventivo.kitCorreaArrastreAccesoriosMes, mesesActuales);
+    avisomes.avisoAnticongelanteMes = this.actualizarMeses(mantenimientoPreventivo.anticongelanteMes, mesesActuales);
+    avisomes.avisoAceiteTransimisionMes = this.actualizarMeses(mantenimientoPreventivo.aceiteTransmisionMes, mesesActuales);
+    avisomes.avisoBujiasEncendidoMes = this.actualizarMeses(mantenimientoPreventivo.bujiasEncendidoMes, mesesActuales);
 
     console.log(avisomes);
 
@@ -90,22 +90,25 @@ export class AvisomesService {
 
   updateAvisoMes(avisomes: Avisomes, mantenimientoPreventivo: MantenimientoPreventivo, mesesActuales: number): Observable<any> {
 
-    avisomes.avisoLiquidoFrenosMes = mantenimientoPreventivo.liquidoFrenosMes - mesesActuales;
-    avisomes.avisoOperacionesSistematicasMes = mantenimientoPreventivo.operacionesSistematicasMes - mesesActuales;
-    avisomes.avisoFiltroAireMes = mantenimientoPreventivo.filtroAireMes - mesesActuales;
-    avisomes.avisoFiltroAireHabitaculoMes = mantenimientoPreventivo.filtroAireHabitaculoMes - mesesActuales;
-    avisomes.avisoFiltroCombustibleMes = mantenimientoPreventivo.filtroCombustibleMes - mesesActuales;
-    avisomes.avisoFiltroAntipolenMes = mantenimientoPreventivo.filtroAntipolenMes - mesesActuales;
-    avisomes.avisoCorreaDistribucionMes = mantenimientoPreventivo.correaDistribucionMes - mesesActuales;
-    avisomes.avisoKitDistribucionMes = mantenimientoPreventivo.kitDistribucionMes - mesesActuales;
-    avisomes.avisoReglajeProyectoresMes = mantenimientoPreventivo.reglajeProyectoresMes - mesesActuales;
-    avisomes.avisoPhLiquidoRefrigeracionMes = mantenimientoPreventivo.pHLiquidoRefrigeracionMes - mesesActuales;
-    avisomes.avisoLiquidoRefrigeracionMes = mantenimientoPreventivo.liquidoRefrigeracionMes - mesesActuales;
-    avisomes.avisoCorreaArrastreAccesoriosMes = mantenimientoPreventivo.correaArrastreAccesoriosMes - mesesActuales;
-    avisomes.avisoKitCorreaArrastreAccesoriosMes = mantenimientoPreventivo.kitCorreaArrastreAccesoriosMes - mesesActuales;
-    avisomes.avisoAnticongelanteMes = mantenimientoPreventivo.anticongelanteMes - mesesActuales;
-    avisomes.avisoAceiteTransimisionMes = mantenimientoPreventivo.aceiteTransmisionMes - mesesActuales;
-    avisomes.avisoBujiasEncendidoMes = mantenimientoPreventivo.bujiasEncendidoMes - mesesActuales;
+    console.log(mantenimientoPreventivo);
+    console.log(mesesActuales);
+
+    avisomes.avisoLiquidoFrenosMes = this.actualizarMeses(mantenimientoPreventivo.liquidoFrenosMes, mesesActuales);
+    avisomes.avisoOperacionesSistematicasMes = this.actualizarMeses(mantenimientoPreventivo.operacionesSistematicasMes, mesesActuales);
+    avisomes.avisoFiltroAireMes = this.actualizarMeses(mantenimientoPreventivo.filtroAireMes, mesesActuales);
+    avisomes.avisoFiltroAireHabitaculoMes = this.actualizarMeses(mantenimientoPreventivo.filtroAireHabitaculoMes, mesesActuales);
+    avisomes.avisoFiltroCombustibleMes = this.actualizarMeses(mantenimientoPreventivo.filtroCombustibleMes, mesesActuales);
+    avisomes.avisoFiltroAntipolenMes = this.actualizarMeses(mantenimientoPreventivo.filtroAntipolenMes, mesesActuales);
+    avisomes.avisoCorreaDistribucionMes = this.actualizarMeses(mantenimientoPreventivo.correaDistribucionMes, mesesActuales);
+    avisomes.avisoKitDistribucionMes = this.actualizarMeses(mantenimientoPreventivo.kitDistribucionMes, mesesActuales);
+    avisomes.avisoReglajeProyectoresMes = this.actualizarMeses(mantenimientoPreventivo.reglajeProyectoresMes, mesesActuales);
+    avisomes.avisoPhLiquidoRefrigeracionMes = this.actualizarMeses(mantenimientoPreventivo.pHLiquidoRefrigeracionMes, mesesActuales);
+    avisomes.avisoLiquidoRefrigeracionMes = this.actualizarMeses(mantenimientoPreventivo.liquidoRefrigeracionMes, mesesActuales);
+    avisomes.avisoCorreaArrastreAccesoriosMes = this.actualizarMeses(mantenimientoPreventivo.correaArrastreAccesoriosMes, mesesActuales);
+    avisomes.avisoKitCorreaArrastreAccesoriosMes = this.actualizarMeses(mantenimientoPreventivo.kitCorreaArrastreAccesoriosMes, mesesActuales);
+    avisomes.avisoAnticongelanteMes = this.actualizarMeses(mantenimientoPreventivo.anticongelanteMes, mesesActuales);
+    avisomes.avisoAceiteTransimisionMes = this.actualizarMeses(mantenimientoPreventivo.aceiteTransmisionMes, mesesActuales);
+    avisomes.avisoBujiasEncendidoMes = this.actualizarMeses(mantenimientoPreventivo.bujiasEncendidoMes, mesesActuales);
     avisomes.mensajeMes = "";
 
     return this.http
@@ -123,6 +126,17 @@ export class AvisomesService {
       );
   }
 
+  actualizarMeses(propiedad: any, meses: number){
+
+    if (propiedad != 0) {
+      console.log(propiedad);
+      console.log(meses);
+      return (propiedad - meses);
+    } else {
+      return 0;
+    }
+  }
+
   getAvisoMes(id: string): Observable<any> {
     return this.http.get<any>(`${this.urlEndPointPP}/${id}/avisomes`);
   }
@@ -131,5 +145,18 @@ export class AvisomesService {
     console.log(id);
     return this.http.get<any>(id);
   }
+
+  monthDiff(d1: any, d2: any) { 
+    var months;
+    let fecha2 = new Date(d2);
+    let fecha1 = new Date(d1);
+    console.log(fecha1); 
+    console.log(fecha2); 
+    months = (fecha2.getFullYear() - fecha1.getFullYear()) * 12; 
+    months -= fecha1.getMonth(); 
+    months += fecha2.getMonth(); 
+    return months <= 0 ? 0 : months;
+  }
+
 
 }

@@ -39,6 +39,7 @@ export class MantenimientoService {
     let mantenimiento: Mantenimiento = new MantenimientoImpl();
     mantenimiento.fechaMantenimiento=mantenimientoApi.fechaMantenimiento;
     mantenimiento.kilometrosMantenimiento=mantenimientoApi.kilometrosMantenimiento;
+    mantenimiento.mesesMantenimiento = mantenimientoApi.mesesMantenimiento;
     mantenimiento.id = this.getId(mantenimientoApi._links.mantenimientorealizado.href);
     mantenimiento.observaciones = mantenimientoApi.observaciones;
     mantenimiento.aceiteTransmision = mantenimientoApi.aceiteTransmision;
