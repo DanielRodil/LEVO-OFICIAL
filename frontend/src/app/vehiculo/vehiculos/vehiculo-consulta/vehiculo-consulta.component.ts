@@ -12,6 +12,11 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { MantenimientoImpl } from "../../models/mantenimiento-impl";
 import { Mantenimiento } from "../../models/mantenimiento";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { MantenimientoService } from "../../service/mantenimiento.service";
+import { AvisokmService } from "src/app/administrador/service/avisokm.service";
+import { AvisomesService } from "src/app/administrador/service/avisomes.service";
+import { Avisokm } from "src/app/administrador/models/avisokm";
+import { Avisomes } from "src/app/administrador/models/avisomes";
 
 @Component({
   selector: "app-vehiculo-consulta",
@@ -24,6 +29,8 @@ export class VehiculoConsultaComponent implements OnInit {
   vehiculo: Vehiculo = new VehiculoImpl();
   mantenimiento: Mantenimiento = new MantenimientoImpl();
   mantenimientosVerDatos: MantenimientoImpl[] = [];
+  avisokm!: Avisokm;
+  avisomes!: Avisomes;
   // mantenimientoPreventivoVerDatos: MantenimientoPreventivoImpl = new MantenimientoPreventivoImpl();
   // datosTecnicosInteresVerDatos: DatosTecnicosInteresImpl = new DatosTecnicosInteresImpl();
 
@@ -107,30 +114,34 @@ export class VehiculoConsultaComponent implements OnInit {
     private mantenimientoPreventivoService: MantenimientoPreventivoService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder, private mantenimientoService: MantenimientoService,
+    private avisokmService: AvisokmService, private avisomesService: AvisomesService
   ) {}
 
   ngOnInit(): void {
 
     let id: string = this.cargarVehiculo();
-
     this.vehiculoService.getVehiculo(id).subscribe((response) => {
       this.vehiculo = this.vehiculoService.mapearVehiculo(response);
-      console.log(this.vehiculo)
-    });
-
-    this.datosTecnicosInteresService
-      .getDatosTecnicosInteresVehiculo(id)
-      .subscribe((response) =>
-          (this.datosTecnicosInteres = this.datosTecnicosInteresService.mapearDatosTecnicosInteres(response))
-    );
-
-    this.mantenimientoPreventivoService
-      .getPP(id)
-      .subscribe((response) =>
-          (this.mantenimientoPreventivo =
-            this.mantenimientoPreventivoService.mapearMantenimientoPreventivo(response))
-    );
+      this.mantenimientoService.getmantenimientoVehiculo(id).subscribe(response => {
+        this.mantenimientos = this.mantenimientoService.extraerMantenimientos(response);
+        this.vehiculo.mantenimientos=this.mantenimientos;
+        this.datosTecnicosInteresService.getDatosTecnicosInteresVehiculo(id).subscribe(response => {
+          this.datosTecnicosInteres = this.datosTecnicosInteresService.mapearDatosTecnicosInteres(response);
+        this.mantenimientoPreventivoService.getPP(id).subscribe(response => {
+          this.mantenimientoPreventivo = this.mantenimientoPreventivoService.mapearMantenimientoPreventivo(response);
+        this.avisokmService.getAvisoKm(id).subscribe(response => {
+          console.log(response);
+          this.avisokm = this.avisokmService.mapearAvisokm(response)
+          })
+        this.avisomesService.getAvisoMes(id).subscribe(response => {
+          console.log(response);
+          this.avisomes = this.avisomesService.mapearAvisoMes(response)
+          })
+        })
+      })
+    })
+  })
   }
 
   cargarVehiculo(): string {
