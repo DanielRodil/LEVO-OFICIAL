@@ -26,6 +26,7 @@ export class BusquedaItemUsuarioComponent implements OnInit {
   constructor(private avisokmService: AvisokmService,
               private avisomesService: AvisomesService ) { }
 
+
   ngOnInit(): void {
     this.avisokmService.getAvisoKmBusqueda(this.vehiculo.avisokms).subscribe(response => {
       this.avisokm = this.avisokmService.extraerAvisoKm(response);
@@ -33,7 +34,6 @@ export class BusquedaItemUsuarioComponent implements OnInit {
     })
     this.avisomesService.getAvisoMesBusqueda(this.vehiculo.avisomes).subscribe(response => {
       this.avisomes = this.avisomesService.extraerAvisoMes(response);
-     
     })
   }
 

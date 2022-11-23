@@ -8,13 +8,15 @@ import { BusquedaItemUsuarioComponent } from './busqueda-item-usuario/busqueda-i
 import { VehiculoModule } from '../vehiculo/vehiculo.module';
 import { FormsModule } from '@angular/forms';
 import { AvisokmusuarioComponent } from './avisokmusuario/avisokmusuario.component';
+import { AvisomesusuarioComponent } from './avisomesusuario/avisomesusuario.component';
 
 
 @NgModule({
   declarations: [
     UsuarioComponent,
     BusquedaItemUsuarioComponent,
-    AvisokmusuarioComponent
+    AvisokmusuarioComponent,
+    AvisomesusuarioComponent
   ],
   imports: [
     CommonModule,

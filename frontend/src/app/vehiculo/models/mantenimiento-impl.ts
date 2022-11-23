@@ -5,6 +5,7 @@ export class MantenimientoImpl {
     id!: string;
     fechaMantenimiento!: Date;
     kilometrosMantenimiento!: number;
+	mesesMantenimiento!: number;
     observaciones!: string;
     liquidoFrenos!: boolean;
 	operacionesSistematicas!: boolean;

@@ -59,6 +59,7 @@ export class UsuarioComponent implements OnInit {
   clear(){
     this.matricula='';
     this.vehiculoIncorrecto='';
+    location.reload();
   }
 
   limpiar=faBroom
