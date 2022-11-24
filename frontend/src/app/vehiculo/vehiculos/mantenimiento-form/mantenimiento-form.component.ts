@@ -59,7 +59,7 @@ export class MantenimientoFormComponent implements OnInit {
         this.avisokm = this.avisokmService.mapearAvisokm(response)})
       this.avisomesService.getAvisoMes(id).subscribe(response => {
         this.avisomes = this.avisomesService.mapearAvisoMes(response)})
-      console.log(this.vehiculo);
+ 
 
     });
   }
@@ -76,7 +76,7 @@ export class MantenimientoFormComponent implements OnInit {
       response.mesesMantenimiento = this.avisomesService.monthDiff(this.vehiculo.fechaAlta, response.fechaMantenimiento);
       this.vehiculo.mesesActuales = response.mesesMantenimiento;
 
-      console.log(response.mesesMantenimiento);
+     
 
       // this.vehiculo.mesesActuales = 6;
 
