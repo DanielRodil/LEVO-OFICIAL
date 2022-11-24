@@ -259,5 +259,25 @@
     </div>
   </div>
 
+  <!--Modal Editar Mantenimiento-->
+
+  <div class="modal fade" id="BorrarrMantenimiento" tabindex="-1" aria-labelledby="BorrarrMantenimiento" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="BorrarMantenimiento">Borrar Mantenimiento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          El mantenimiento  de fecha {{mantenimiento.fechaMantenimiento}} del vehiculo {{vehiculo.matricula}} va a ser eliminado ¿está seguro?
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary"data-bs-dismiss="modal" (click)="onMantenimientoBorrar()" routerLink="/administrador">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 

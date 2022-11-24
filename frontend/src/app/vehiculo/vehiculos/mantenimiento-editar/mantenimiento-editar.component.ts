@@ -66,6 +66,14 @@ export class MantenimientoEditarComponent implements OnInit {
       this.router.navigate([`administrador/editar/${this.vehiculo.id}`]);
   }
 
+  onMantenimientoBorrar(): void {
+    this.mantenimientoService
+      .deleteMantenimiento(this.mantenimiento.id)
+      .subscribe();
+      this.router.navigate([`administrador/editar/${this.vehiculo.id}`]);
+      location.reload();
+  }
+
   goBack(){
     let url = `administrador`;
     

@@ -22,9 +22,6 @@ export class MantenimientoItemEditarComponent implements OnInit {
   constructor() {}
 
   borrarMantenimiento(): void {
-    if (
-      confirm('Va a eliminar el mantenimiento seleccionado ¿Desea continuar?')
-    )
       this.mantenimientoEliminar.emit(this.mantenimiento);
   }
 

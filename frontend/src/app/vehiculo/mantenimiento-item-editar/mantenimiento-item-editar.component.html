@@ -152,14 +152,34 @@
       Editar
   </button>
   </div>
-
-  <!-- <div class="col-xl-1">
-    <a><fa-icon [icon]="trash" class="fa-2x" (click)="borrarMantenimiento()"></fa-icon></a>
-  </div> -->
+  <div class="col-xl-1">
+    <button type="button" class="btn btn-danger btn-danger" data-bs-toggle="modal" data-bs-target="#BorrarMantenimiento">
+      Eliminar
+  </button>
+  </div>
 
 </div>
 
 <br>
+
+ <!--Modal Borrar Mantenimiento-->
+
+ <div class="modal fade" id="BorrarMantenimiento" tabindex="-1" aria-labelledby="BorrarMantenimiento" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="BorrarMantenimiento">Borrar Mantenimiento</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        El mantenimiento va a ser eliminado ¿Desea continuar?
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary"data-bs-dismiss="modal" (click)="borrarMantenimiento()" routerLink="/administrador">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
