@@ -1,4 +1,6 @@
+import { DatePipe } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
+import { FormControl } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Avisokm } from "src/app/administrador/models/avisokm";
@@ -35,6 +37,9 @@ export class MantenimientoFormComponent implements OnInit {
   avisokm!: Avisokm;
   avisomes!: Avisomes;
 
+  fechaMaxima!:Date;
+  fechaBuena!:string|null;
+
   constructor(
     private vehiculoService: VehiculoService,
     private mantenimientoService: MantenimientoService,
@@ -43,7 +48,7 @@ export class MantenimientoFormComponent implements OnInit {
     private avisokmService: AvisokmService,
     private avisomesService: AvisomesService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router, private date:DatePipe 
   ) {}
 
   ngOnInit(): void {
@@ -62,6 +67,9 @@ export class MantenimientoFormComponent implements OnInit {
  
 
     });
+
+    this.fechaMaxima=new Date();
+    this.fechaBuena=this.date.transform(this.fechaMaxima,"yyyy-MM-dd");
   }
 
   cargarId(): string {
@@ -230,3 +238,15 @@ export class MantenimientoFormComponent implements OnInit {
     this.router.navigate(['/administrador'])
   }
 }
+
+export const isValidDateAlta=(c:FormControl)=>{
+  let hoy:Date= new Date();
+  let fecha:Date=new Date(c.value);
+  if(fecha>hoy){
+   return {
+    validateDate:true
+  };
+  }else{
+      return null;
+  }
+  }
