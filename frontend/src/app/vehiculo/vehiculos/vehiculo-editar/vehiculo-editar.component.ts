@@ -185,7 +185,7 @@ export class VehiculoEditarComponent implements OnInit {
       .updateAvisoMes(this.avisomes, this.mantenimientoPreventivo, this.vehiculo.mesesActuales)
       .subscribe();
 
-    this.router.navigate([`administrador/consultar/${this.vehiculo.id}`]);
+    this.router.navigate([`administrador`]);
   }
 
   onEditarVehiculo1(): void {
